@@ -1,6 +1,6 @@
 #!/usr/local/bin/python3
 
-# 使用方法：下载IconFont上的图标，将本代码放到图标的相同目录并执行，将生成对应的dist目录下的iOS图标
+# 使用方法：将本代码放到图标的相同目录并执行，将生成dist目录
 
 import sys
 import os
@@ -48,7 +48,7 @@ def generate_icons_from_image_fold(path):
 
     for root, dirs, file_names in os.walk(path):
         for file_name in file_names:
-            if not file_name.startswith('.'):
+            if file_name.endswith('.png'):
                 generate_icons_from_image_file(os.path.join(root, file_name), out_path)
         break
 
